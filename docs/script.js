@@ -1,11 +1,14 @@
-$(document).ready(function() {
-  $('#registrationForm').on('submit', function(e) {
-    let phone = $('#phone').val();
+document.getElementById("regForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop page refresh
 
-    // Simple phone validation
-    if (!/^[0-9]{10}$/.test(phone)) {
-      alert("Please enter a valid 10-digit phone number.");
-      e.preventDefault();
-    }
-  });
+    // Get form values
+    document.getElementById("outName").innerText = document.getElementById("name").value;
+    document.getElementById("outEmail").innerText = document.getElementById("email").value;
+    document.getElementById("outPhone").innerText = document.getElementById("phone").value;
+    document.getElementById("outGender").innerText = document.getElementById("gender").value;
+    document.getElementById("outCourse").innerText = document.getElementById("course").value;
+
+    // Hide form and show output box
+    document.querySelector(".container").style.display = "none";
+    document.getElementById("output").style.display = "block";
 });
